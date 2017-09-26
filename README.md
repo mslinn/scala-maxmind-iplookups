@@ -5,25 +5,33 @@
 This is a Scala wrapper for the MaxMind [Java Geo-IP] [java-lib] library. 
 The main benefits of using this wrapper over directly calling the Java library from Scala are:
 
-1. **Provides a common interface to four MaxMind databases** - it works with MaxMind's databases for looking up geographic location, ISP, organization, and domain from an IP address
+1. **Provides a common interface to four MaxMind databases** - it works with MaxMind's databases for looking up 
+   geographic location, ISP, organization, and domain from an IP address
 2. **Easier to setup/test** - the SBT project definition makes it easy to download and test
-3. **Better type safety** - the MaxMind Java library is somewhat null-happy. This wrapper uses Option boxing wherever possible
-4. **Better performance** - as well as or instead of using MaxMind's own caching (`GEOIP_MEMORY_CACHE`), you can also configure an LRU (Least Recently Used) cache of variable size
+3. **Better type safety** - the MaxMind Java library is somewhat null-happy. 
+   This wrapper uses `Option` boxing wherever possible
+4. **Better performance** - as well as or instead of using MaxMind's own caching (`GEOIP_MEMORY_CACHE`), 
+   you can also configure an LRU (Least Recently Used) cache of variable size
 
 ## Installation
 
-The latest version of scala-maxmind-iplookups is **0.3.0** and is compatible with all Scala versions from 2.11 onwards.
+The latest version of `scala-maxmind-iplookups` is compatible with all Scala versions from 2.11 onwards.
 
-Add this to your SBT config:
+Add this to your project's `build.sbt`:
 
+    resolvers += "micronautics/scala on bintray" at "http://dl.bintray.com/micronautics/scala"
+
+    libraryDependencies += "com.snowplowanalytics" %% "scala-maxmind-iplookups" % "0.4.1" withSources()
+
+(Was):
 ```scala
 // Resolvers
 val snowplowRepo = "SnowPlow Repo" at "http://maven.snplow.com/releases/"
 
 // Dependency
-val maxmindIpLookups = "com.snowplowanalytics"  %% "scala-maxmind-iplookups"  % "0.3.0"
+val maxmindIpLookups = "com.snowplowanalytics"  %% "scala-maxmind-iplookups"  % "0.4.1"
 ```
-
+    
 Note the double percent (`%%`) between the group and artifactId. 
 That'll ensure you get the right package for your Scala version.
 

@@ -2,7 +2,7 @@ name          := "scala-maxmind-iplookups"
 
 organization  := "com.snowplowanalytics"
 
-version       := "0.4.0"
+version       := "0.4.1"
 
 description   := "Scala wrapper for MaxMind GeoIP library"
 
@@ -31,11 +31,11 @@ val maxMindVer = "1.2.11"
 val specs2Ver  = "3.9.5"
 
 libraryDependencies ++= Seq(
-  "com.maxmind.geoip" % "geoip-api" % maxMindVer,
-  "com.google.guava" % "guava" % "18.0",
-  "org.specs2" %% "specs2-core"  % specs2Ver % Test,
-  "org.specs2" %% "specs2-junit" % specs2Ver % Test,
-  "org.specs2" %% "specs2-mock"  % specs2Ver % Test
+  "com.maxmind.geoip" %  "geoip-api"    % maxMindVer,
+  "com.google.guava"  %  "guava"        % "22.0",
+  "org.specs2"        %% "specs2-core"  % specs2Ver % Test,
+  "org.specs2"        %% "specs2-junit" % specs2Ver % Test,
+  "org.specs2"        %% "specs2-mock"  % specs2Ver % Test
 )
 
 resolvers += "ScalaTools snapshots at Sonatype" at "https://oss.sonatype.org/content/repositories/snapshots/"
