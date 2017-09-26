@@ -13,7 +13,6 @@ package com.snowplowanalytics.maxmind
 
 import org.specs2.mutable.Specification
 import org.specs2.specification.core.{Fragment, Fragments}
-import scala.language.postfixOps
 import scala.concurrent.ExecutionContext.Implicits.global
 
 object IpLookupsTest {
