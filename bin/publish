@@ -11,7 +11,7 @@ cd "$DIR"
 
 # Scan build.sbt for an SBT setting
 function findValue {
-  echo "$( grep "$1 :=" build.sbt | cut -d' ' -f 3 | tr -d \" )"
+  echo "$( grep "$1\W:=" build.sbt | cut -d' ' -f 3 | tr -d \" )"
 }
 
 VERSION="$( findValue version )"
@@ -25,7 +25,8 @@ if [ $? == 0 ]; then
 
   if [ $? == 0 ]; then
     echo "Committing tag $VERSION"
-    git commit -a "$VERSION" -m "Version $VERSION"
+    git commit -m "Version $VERSION"
+    git tag -a "$VERSION" -m "Version $VERSION"
   else
     echo "Non-zero return code from SBT, so git commit not performed"
   fi
